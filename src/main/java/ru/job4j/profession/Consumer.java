@@ -5,6 +5,12 @@ public class Consumer {
     private int age;
     private int cashAccount;
 
+    public Consumer(String name, int age, int cashAccount) {
+        this.name = name;
+        this.age = age;
+        this.cashAccount = cashAccount;
+    }
+
     public String getName() {
         return name;
     }
