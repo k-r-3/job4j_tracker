@@ -20,5 +20,6 @@ public class StartUI {
             tracker.add(item);
         }
         System.out.println(tracker.findById(3));
+        System.out.println(Arrays.toString(tracker.findByName("# 2")));
     }
 }
