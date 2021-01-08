@@ -39,7 +39,7 @@ public class StartUI {
     public static void deleteItem(Input input, Tracker tracker) {
         int id = Integer.valueOf(input.askInt("Insert item ID : "));
         if (tracker.delete(id)) {
-            System.out.println("item was removedn\n");
+            System.out.println("item was removed\n");
         } else {
             System.out.println("ID not found, please try again\n");
         }
