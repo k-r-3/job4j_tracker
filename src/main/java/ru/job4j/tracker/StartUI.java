@@ -27,18 +27,16 @@ public class StartUI {
                 int id = Integer.valueOf(scanner.nextLine());
                     System.out.println("Insert new item name");
                     String name = scanner.nextLine();
-                    Item item = tracker.findById(id);
                     if (tracker.replace(id, new Item(name))) {
-                        System.out.println("Replacing an " + item + " in " + item);
+                        System.out.println("Replacing an item");
                 } else {
                     System.out.println("ID not found, please try again");
                 }
             } else if (select == 3) {
                 System.out.println("Insert item ID");
                 int id = Integer.valueOf(scanner.nextLine());
-                Item item = tracker.findById(id);
                 if (tracker.delete(id)) {
-                    System.out.println(item + " was removed");
+                    System.out.println("item was removed");
                 } else {
                     System.out.println("ID not found, please try again");
                 }
