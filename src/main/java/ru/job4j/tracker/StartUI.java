@@ -29,7 +29,7 @@ public class StartUI {
                     String name = scanner.nextLine();
                     Item item = tracker.findById(id);
                     if (tracker.replace(id, new Item(name))) {
-                        System.out.println("Replacing an " + item + " in " + tracker.findById(id));
+                        System.out.println("Replacing an " + item + " in " + item);
                 } else {
                     System.out.println("ID not found, please try again");
                 }
