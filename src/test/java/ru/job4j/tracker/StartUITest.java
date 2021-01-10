@@ -36,6 +36,8 @@ public class StartUITest {
     public void whenShowItems() {
         Tracker tracker = new Tracker();
         Item item = tracker.add(new Item("Item for show"));
+        Item item2 = tracker.add(new Item("Item2 for show"));
+        Item[] items = {item, item2};
         Input in = new StubInput(
                 new String[] {"0", "1"}
         );
@@ -45,11 +47,13 @@ public class StartUITest {
                 new Exit(out)
         };
         new StartUI(out).init(in, tracker, actions);
+        assertThat(tracker.findAll(), is(items));
         assertThat(out.toString(), is("Menu." + System.lineSeparator() +
                 "0. Show all Items" + System.lineSeparator() +
                 "1. Exit" + System.lineSeparator() +
                 "All items :" + System.lineSeparator() +
                 item.toString() + System.lineSeparator() +
+                item2.toString() + System.lineSeparator() +
                 System.lineSeparator() + System.lineSeparator() +
                 "Menu." + System.lineSeparator() +
                 "0. Show all Items" + System.lineSeparator() +
@@ -61,7 +65,6 @@ public class StartUITest {
     public void whenFindById() {
         Tracker tracker = new Tracker();
         Item item = tracker.add(new Item("New Item"));
-        String name = item.toString();
         Input in = new StubInput(
                 new String[] {"0", "1", "1"}
         );
@@ -71,11 +74,11 @@ public class StartUITest {
                 new Exit(out)
         };
         new StartUI(out).init(in, tracker, actions);
-        assertThat(tracker.findById(item.getId()).toString(), is(name));
+        assertThat(tracker.findById(item.getId()).getName(), is(tracker.findAll()[0].getName()));
         assertThat(out.toString(), is("Menu." + System.lineSeparator() +
                 "0. Find Item by ID" + System.lineSeparator() +
                 "1. Exit" + System.lineSeparator() +
-                name + System.lineSeparator() +
+                tracker.findAll()[0] + System.lineSeparator() +
                 System.lineSeparator() + System.lineSeparator() +
                 "Menu." + System.lineSeparator() +
                 "0. Find Item by ID" + System.lineSeparator() +
@@ -87,7 +90,6 @@ public class StartUITest {
     public void whenFindByName() {
         Tracker tracker = new Tracker();
         Item item = tracker.add(new Item("New Item"));
-        String name = item.toString();
         Input in = new StubInput(
                 new String[] {"0", "New Item", "1"}
         );
@@ -97,10 +99,11 @@ public class StartUITest {
                 new Exit(out)
         };
         new StartUI(out).init(in, tracker, actions);
+        assertThat(tracker.findAll()[0].getName(), is("New Item"));
         assertThat(out.toString(), is("Menu." + System.lineSeparator() +
                 "0. Find Item by name" + System.lineSeparator() +
                 "1. Exit" + System.lineSeparator() +
-                name + System.lineSeparator() +
+                tracker.findAll()[0] + System.lineSeparator() +
                 System.lineSeparator() + System.lineSeparator() +
                 "Menu." + System.lineSeparator() +
                 "0. Find Item by name" + System.lineSeparator() +
