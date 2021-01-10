@@ -18,10 +18,8 @@ public class FindByID implements UserAction {
         Item item = tracker.findById(id);
         if (item != null) {
             out.println(item);
-            System.lineSeparator();
         } else {
             out.println("ID not found, please try again");
-            System.lineSeparator();
         }
         return true;
     }

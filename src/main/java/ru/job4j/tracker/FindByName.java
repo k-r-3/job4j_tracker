@@ -20,10 +20,8 @@ public class FindByName implements UserAction {
             for(Item item : items) {
                 out.println(item);
             }
-            System.lineSeparator();
         } else {
             out.println("Item not found, please try again");
-            System.lineSeparator();
         }
         return true;
     }
