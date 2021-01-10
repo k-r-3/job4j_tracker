@@ -19,6 +19,8 @@ public class ShowItems implements UserAction {
         for (Item item : items) {
             out.println(item);
         }
+        String sep = System.lineSeparator();
+        out.println(sep);
         return true;
     }
 }

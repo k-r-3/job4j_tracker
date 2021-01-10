@@ -18,8 +18,12 @@ public class ReplaceItem implements UserAction {
         String name = input.askStr("Insert new item name : ");
         if (tracker.replace(id, new Item(name))) {
             out.println("Replacing an item");
+            String sep = System.lineSeparator();
+            out.println(sep);
         } else {
             out.println("ID not found, please try again");
+            String sep = System.lineSeparator();
+            out.println(sep);
         }
         return true;
     }
