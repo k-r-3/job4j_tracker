@@ -22,7 +22,8 @@ public class FindByName implements UserAction {
             }
             System.lineSeparator();
         } else {
-            out.println("Item not found, please try again\n");
+            out.println("Item not found, please try again");
+            System.lineSeparator();
         }
         return true;
     }

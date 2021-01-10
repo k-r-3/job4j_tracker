@@ -16,9 +16,11 @@ public class DeleteItem implements UserAction {
     public boolean execute(Input input, Tracker tracker) {
         int id = Integer.valueOf(input.askInt("Insert item ID : "));
         if (tracker.delete(id)) {
-            out.println("item was removed\n");
+            out.println("item was removed");
+            System.lineSeparator();
         } else {
-            out.println("ID not found, please try again\n");
+            out.println("ID not found, please try again");
+            System.lineSeparator();
         }
         return true;
     }
