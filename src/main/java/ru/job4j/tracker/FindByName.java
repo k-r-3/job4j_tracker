@@ -14,17 +14,16 @@ public class FindByName implements UserAction {
 
     @Override
     public boolean execute(Input input, Tracker tracker) {
+        Object sep = System.lineSeparator();
         String name = input.askStr("Insert item name : ");
         Item[] items = tracker.findByName(name);
         if (items.length != 0) {
             for(Item item : items) {
                 out.println(item);
             }
-            String sep = System.lineSeparator();
             out.println(sep);
         } else {
             out.println("Item not found, please try again");
-            String sep = System.lineSeparator();
             out.println(sep);
         }
         return true;

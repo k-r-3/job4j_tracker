@@ -14,15 +14,14 @@ public class FindByID implements UserAction {
 
     @Override
     public boolean execute(Input input, Tracker tracker) {
+        Object sep = System.lineSeparator();
         int id = Integer.valueOf(input.askInt("Insert item ID : "));
         Item item = tracker.findById(id);
         if (item != null) {
             out.println(item);
-            String sep = System.lineSeparator();
             out.println(sep);
         } else {
             out.println("ID not found, please try again");
-            String sep = System.lineSeparator();
             out.println(sep);
         }
         return true;

@@ -14,15 +14,14 @@ public class ReplaceItem implements UserAction {
 
     @Override
     public boolean execute(Input input, Tracker tracker) {
+        Object sep = System.lineSeparator();
         int id = Integer.valueOf(input.askInt("Insert item ID : "));
         String name = input.askStr("Insert new item name : ");
         if (tracker.replace(id, new Item(name))) {
             out.println("Replacing an item");
-            String sep = System.lineSeparator();
             out.println(sep);
         } else {
             out.println("ID not found, please try again");
-            String sep = System.lineSeparator();
             out.println(sep);
         }
         return true;

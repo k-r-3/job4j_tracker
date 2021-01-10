@@ -14,12 +14,12 @@ public class ShowItems implements UserAction {
 
     @Override
     public boolean execute(Input input, Tracker tracker) {
+        Object sep = System.lineSeparator();
         out.println("All items :");
         Item[] items = tracker.findAll();
         for (Item item : items) {
             out.println(item);
         }
-        String sep = System.lineSeparator();
         out.println(sep);
         return true;
     }
