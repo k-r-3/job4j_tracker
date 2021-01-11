@@ -29,11 +29,11 @@ public class StartUI {
     }
 
     public static void main(String[] args) {
+        Tracker tracker = new Tracker();
         Output output = new ConsoleOutput();
+        Input input = new ValidateInput(new ConsoleInput(), output);
         UserAction[] actions = {new CreateItem(output), new ShowItems(output), new ReplaceItem(output),
                 new DeleteItem(output), new FindByID(output), new FindByName(output), new Exit(output)};
-        Input input = new ValidateInput();
-        Tracker tracker = new Tracker();
         new StartUI(output).init(input, tracker, actions);
     }
 }
