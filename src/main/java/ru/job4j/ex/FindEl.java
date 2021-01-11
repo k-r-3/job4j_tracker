@@ -5,8 +5,10 @@ import java.util.Arrays;
 public class FindEl {
     public static int indexOf(String[] value, String key) throws ElementNotFoundException {
         int rsl = -1;
-        for (String element : value) {
-            rsl = element.equals(key) ? ++rsl : rsl;
+        for (int i = 0; i < value.length; i++) {
+            if (value[i].equals(key)) {
+                rsl++;
+            }
         }
         if (rsl == -1) {
             throw new ElementNotFoundException(key + " not foound in " + Arrays.toString(value));
