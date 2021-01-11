@@ -7,6 +7,7 @@ public class UserStore {
         for(User user : users) {
             if (user.getUsername().equals(login)) {
                 sought = user;
+                break;
             }
         }
         if (sought == null) {
