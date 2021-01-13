@@ -24,8 +24,12 @@ package ru.job4j.ooa;
     }
 
     public void printCountEngine() {
-        engineIncrement += 2;
-        System.out.println("Количество двигателей равно: " + engineIncrement);
+        if (this.getName().equals("A380")) {
+            engineIncrement += 2;
+            System.out.println("Количество двигателей равно: " + engineIncrement);
+        } else {
+        System.out.println("Количество двигателей равно: " + COUNT_ENGINE);
+        }
     }
 
     @Override
