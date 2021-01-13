@@ -7,6 +7,8 @@ public enum TrackerSingle4 {
     INSTANCE;
     private final Tracker instance = new Tracker();
 
+    private TrackerSingle4(){}
+
     public Tracker getInstance() {
         return instance;
     }

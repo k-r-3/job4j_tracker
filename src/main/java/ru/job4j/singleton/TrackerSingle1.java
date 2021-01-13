@@ -6,6 +6,8 @@ import java.util.Arrays;
 public class TrackerSingle1 {
     private static Tracker instance;
 
+    private TrackerSingle1(){}
+
     public static Tracker getInstance() {
         if (instance == null) {
             instance = new Tracker();
