@@ -1,3 +1,4 @@
+/*
 package ru.job4j.tracker;
 
 import org.junit.Test;
@@ -39,4 +40,4 @@ public class TrackerTest {
         tracker.delete(id);
         assertThat(tracker.findById(id), is(nullValue()));
     }
-}
+}*/
