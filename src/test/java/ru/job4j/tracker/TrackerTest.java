@@ -35,7 +35,7 @@ public class TrackerTest {
         tracker.add(first);
         first.setId(0);
         List<Item> result = new ArrayList<>(tracker.findAll());
-        Collections.sort(result, new ItemComparator());
+        Collections.sort(result);
         assertThat(result, is(List.of(first, second, third)));
     }
 
