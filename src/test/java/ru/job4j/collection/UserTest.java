@@ -7,6 +7,7 @@ import java.util.Set;
 import java.util.TreeSet;
 
 import static org.hamcrest.Matchers.greaterThan;
+import static org.hamcrest.Matchers.lessThan;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.*;
 
@@ -37,6 +38,15 @@ public class UserTest {
                         new User("Aleksandr", 31)
                 );
         assertThat(rsl, greaterThan(0));
+    }
+
+    @Test
+    public void whenDifferentNamesLength() {
+        int rsl = new User("Alekseev", 32)
+                .compareTo(
+                        new User("Alekseeva", 31)
+                );
+        assertThat(rsl, lessThan(0));
     }
 
     @Test

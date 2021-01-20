@@ -16,16 +16,15 @@ public class User implements Comparable<User> {
         if (name.equals(o.name)) {
             return Integer.compare(age, o.age);
         }
-        int result = 0;
         int index = 0;
         for(char letter : name.toCharArray()) {
-            result = Integer.compare(letter, o.name.charAt(index));
+            int result = Integer.compare(letter, o.name.charAt(index));
             if(result != 0) {
-                break;
+                return result;
             }
             index++;
         }
-        return result;
+        return name.length() - o.name.length();
         }
 
     @Override
