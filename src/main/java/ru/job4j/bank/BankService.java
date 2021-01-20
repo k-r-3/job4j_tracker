@@ -20,7 +20,7 @@ public class BankService {
     }
 
     public User findByPassport(String passport) {
-        for(User user : users.keySet()) {
+        for (User user : users.keySet()) {
             if (user.getPassport().equals(passport)) {
                 return user;
             }
@@ -41,19 +41,17 @@ public class BankService {
     }
 
     public boolean transferMoney(String srcPassport, String srcRequisite,
-                                 String destPassport, String destRequisite, double amount) throws BalanceException {
+                                 String destPassport, String destRequisite, double amount) {
         boolean rsl = false;
         Account accountFrom = findByRequisite(srcPassport, srcRequisite);
         Account accountTo = findByRequisite(destPassport, destRequisite);
         if (accountFrom != null && accountTo != null) {
-            double balance = accountFrom.getBalance() - amount;
-            if (balance < 0.0) {
-             throw new BalanceException("not enough money");
-            }
-                accountFrom.setBalance(balance);
+            if (accountFrom.getBalance() >= amount) {
+                accountFrom.setBalance(accountFrom.getBalance() - amount);
                 accountTo.setBalance(accountTo.getBalance() + amount);
                 rsl = true;
             }
+        }
         return rsl;
     }
 }
