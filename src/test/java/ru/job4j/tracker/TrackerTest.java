@@ -2,6 +2,11 @@
 package ru.job4j.tracker;
 
 import org.junit.Test;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.core.IsNull.nullValue;
 import static org.junit.Assert.assertThat;
@@ -15,6 +20,40 @@ public class TrackerTest {
         tracker.add(item);
         Item result = tracker.findById(item.getId());
         assertThat(result.getName(), is(item.getName()));
+    }
+
+    @Test
+    public void whenItemSort() {
+        Tracker tracker = new Tracker();
+        Item first = new Item();
+        Item third = new Item();
+        Item second = new Item();
+        tracker.add(second);
+        second.setId(1);
+        tracker.add(third);
+        third.setId(2);
+        tracker.add(first);
+        first.setId(0);
+        List<Item> result = new ArrayList<>(tracker.findAll());
+        Collections.sort(result, new ItemComparator());
+        assertThat(result, is(List.of(first, second, third)));
+    }
+
+    @Test
+    public void whenItemReversSort() {
+        Tracker tracker = new Tracker();
+        Item first = new Item();
+        Item third = new Item();
+        Item second = new Item();
+        tracker.add(second);
+        second.setId(1);
+        tracker.add(third);
+        third.setId(2);
+        tracker.add(first);
+        first.setId(0);
+        List<Item> result = new ArrayList<>(tracker.findAll());
+        Collections.sort(result, new ItemReversComparator());
+        assertThat(result, is(List.of(third, second, first)));
     }
 
     @Test
