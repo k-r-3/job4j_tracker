@@ -31,6 +31,15 @@ public class UserTest {
     }
 
     @Test
+    public void whenCompareAlekseyVSAleksandr() {
+        int rsl = new User("Aleksey", 32)
+                .compareTo(
+                        new User("Aleksandr", 31)
+                );
+        assertThat(rsl, greaterThan(0));
+    }
+
+    @Test
     public void whenAscWithoutName() {
         Set<User> users = new TreeSet<>();
         users.add(new User("Petr", 31));

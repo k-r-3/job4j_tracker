@@ -16,8 +16,17 @@ public class User implements Comparable<User> {
         if (name.equals(o.name)) {
             return Integer.compare(age, o.age);
         }
-        return Integer.compare(name.charAt(0), o.name.charAt(0));
-    }
+        int result = 0;
+        int index = 0;
+        for(char letter : name.toCharArray()) {
+            result = Integer.compare(letter, o.name.charAt(index));
+            if(result != 0) {
+                break;
+            }
+            index++;
+        }
+        return result;
+        }
 
     @Override
     public boolean equals(Object o) {
