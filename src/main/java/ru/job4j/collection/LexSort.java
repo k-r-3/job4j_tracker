@@ -21,20 +21,5 @@ public class LexSort implements Comparator<String> {
             size++;
         }
         return Integer.compare(Integer.parseInt(ls.toString()), Integer.parseInt(rs.toString()));
-//    @Override
-//    public int compare(String left, String right) {
-//        int leftString;
-//        int rightString;
-//        StringBuilder sb = new StringBuilder();
-//        for (char symbol : left.toCharArray()) {
-//            if (symbol == '.') {
-//                break;
-//            }
-//            sb.append(symbol);
-//            leftString = Integer.parseInt(sb.toString());
-//            symbol += symbol;
-//
-//        }
-//        return Integer.compare(Integer.parseInt(left), Integer.parseInt(right));
     }
 }
