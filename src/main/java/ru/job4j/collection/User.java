@@ -10,21 +10,28 @@ public class User implements Comparable<User> {
         this.name = name;
         this.age = age;
     }
+//
+//    @Override
+//    public int compareTo(User o) {
+//        if (name.equals(o.name)) {
+//            return Integer.compare(age, o.age);
+//        }
+//        int index = 0;
+//        for(char letter : name.toCharArray()) {
+//            int result = Integer.compare(letter, o.name.charAt(index));
+//            if(result != 0) {
+//                return result;
+//            }
+//            index++;
+//        }
+//        return name.length() - o.name.length();
 
     @Override
     public int compareTo(User o) {
         if (name.equals(o.name)) {
             return Integer.compare(age, o.age);
         }
-        int index = 0;
-        for(char letter : name.toCharArray()) {
-            int result = Integer.compare(letter, o.name.charAt(index));
-            if(result != 0) {
-                return result;
-            }
-            index++;
-        }
-        return name.length() - o.name.length();
+        return this.name.compareTo(o.name);
         }
 
     @Override
