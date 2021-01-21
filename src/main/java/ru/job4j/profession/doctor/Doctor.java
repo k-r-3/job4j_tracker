@@ -8,5 +8,5 @@ public class Doctor extends Profession {
         super(name, surname, education, birthday);
     }
 
-    public void getReceipt(Patient patient) {}
+    public void getReceipt(Patient patient) { }
 }

@@ -6,5 +6,5 @@ public class Builder extends Engineer {
         super(name, surname, education, birthday);
     }
 
-    public void build (Customer customer) {}
+    public void build(Customer customer) { }
 }

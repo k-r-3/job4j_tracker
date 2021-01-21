@@ -12,8 +12,9 @@ public class MagicBall {
         String question = sc.nextLine();
         System.out.println(answer(probability));
     }
+
     public static String answer(int probability) {
-         switch(probability){
+         switch (probability) {
             case 0 :
               return  "Да";
             case 1 :

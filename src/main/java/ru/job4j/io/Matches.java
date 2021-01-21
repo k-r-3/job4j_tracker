@@ -9,11 +9,11 @@ public class Matches {
         int matches = 11;
         int player;
         Scanner sc = new Scanner(System.in);
-        while(matches > 0) {
+        while (matches > 0) {
             int ai = new Random().nextInt(2) + 1;
             System.out.println("matches amount = " + matches);
             System.out.println("player's turn... ");
-            player =Integer.parseInt(sc.nextLine());
+            player = Integer.parseInt(sc.nextLine());
             matches -= player;
             System.out.println("matches amount = " + matches);
             if (matches == 0) {

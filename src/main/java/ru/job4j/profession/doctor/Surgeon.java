@@ -6,6 +6,6 @@ public class Surgeon extends Doctor {
         super(name, surname, education, birthday);
     }
 
-    public void surgery(Patient patient) {}
+    public void surgery(Patient patient) { }
 
 }

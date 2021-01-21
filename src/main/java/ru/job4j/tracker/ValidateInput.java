@@ -19,13 +19,13 @@ public class ValidateInput implements Input {
         boolean invalid = true;
         int value = -1;
         do {
-            try{
+            try {
                 value = in.askInt(question);
                 invalid = false;
-            } catch(NumberFormatException e) {
+            } catch (NumberFormatException e) {
                 out.println("Data not valid, please try again");
             }
-        } while(invalid);
+        } while (invalid);
         return value;
     }
 }

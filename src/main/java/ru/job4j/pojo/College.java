@@ -7,6 +7,7 @@ public class College {
         student.setName("Ivanov Ivan Ivanovich");
         student.setGroup(1);
         student.setEnrolled(2000, 9, 1);
-        System.out.println("Student " + student.getName() + " was enrolled in university on " + student.getEnrolled());
+        System.out.println("Student " + student.getName() + " was enrolled in university on "
+                + student.getEnrolled());
     }
 }

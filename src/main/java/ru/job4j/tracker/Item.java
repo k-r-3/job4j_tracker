@@ -6,9 +6,9 @@ public class Item implements Comparable<Item> {
     private String name;
     private LocalDateTime created = LocalDateTime.now();
 
-    public Item() {}
+    public Item() { }
 
-    public Item( int id) {
+    public Item(int id) {
         this.id = id;
     }
 
@@ -43,10 +43,10 @@ public class Item implements Comparable<Item> {
 
     @Override
     public String toString() {
-        return "Item{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                '}';
+        return "Item{"
+                + "id=" + id
+                + ", name='" + name + '\''
+                + '}';
     }
 
     @Override

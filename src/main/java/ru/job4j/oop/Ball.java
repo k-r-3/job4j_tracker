@@ -1,5 +1,6 @@
 package ru.job4j.oop;
 
 public class Ball {
-    public void voyage (BallStory ballStory) {}
+    public void voyage(BallStory ballStory) { }
+
 }

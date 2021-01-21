@@ -20,7 +20,7 @@ public class FindByName implements UserAction {
         String name = input.askStr("Insert item name : ");
         List<Item> items = tracker.findByName(name);
         if (items.size() != 0) {
-            for(Item item : items) {
+            for (Item item : items) {
                 out.println(item);
             }
             out.println(sep);

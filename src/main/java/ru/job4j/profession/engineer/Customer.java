@@ -10,5 +10,5 @@ public class Customer extends Consumer {
         this.order = order;
     }
 
-    public void employment() {}
+    public void employment() { }
 }

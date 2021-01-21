@@ -4,7 +4,7 @@ public class UserStore {
 
     public static User findUser(User[] users, String login) throws UserNotFoundException {
         User sought = null;
-        for(User user : users) {
+        for (User user : users) {
             if (user.getUsername().equals(login)) {
                 sought = user;
                 break;
@@ -18,7 +18,8 @@ public class UserStore {
 
     public static boolean validate(User user) throws UserInvalidException {
         if (!user.isValid() || user.getUsername().length() < 3) {
-            throw new UserInvalidException("This user login is invalid, or too short. It should be more 3 characters");
+            throw new UserInvalidException("This user login is invalid, or too short. "
+                    + "It should be more 3 characters");
         }
         return true;
     }
@@ -27,12 +28,12 @@ public class UserStore {
         User[] users = {
                 new User("Petr Arsentev", false)
         };
-        try{
+        try {
             User user = findUser(users, "Petr Arsentev");
             if (validate(user)) {
                 System.out.println("This user has an access");
             }
-        }catch(UserInvalidException ie) {
+        } catch (UserInvalidException ie) {
             ie.printStackTrace();
         } catch (UserNotFoundException nfe) {
             nfe.printStackTrace();

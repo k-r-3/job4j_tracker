@@ -11,10 +11,10 @@ public class PhoneDictionary {
 
     public ArrayList<Person> find(String key) {
         ArrayList<Person> result = new ArrayList<>();
-        for(Person search : persons) {
-            if (key.contains(search.getAddress()) ||
-            key.contains(search.getSurname()) ||
-            key.contains(search.getName())) {
+        for (Person search : persons) {
+            if (key.contains(search.getAddress())
+                    || key.contains(search.getSurname())
+                    || key.contains(search.getName())) {
                 result.add(search);
             }
         }

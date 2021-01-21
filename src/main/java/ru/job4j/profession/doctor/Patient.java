@@ -10,5 +10,5 @@ public class Patient extends Consumer {
         this.disease = disease;
     }
 
-    public void appointment() {}
+    public void appointment() { }
 }
