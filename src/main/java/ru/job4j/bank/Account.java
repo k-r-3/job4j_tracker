@@ -4,7 +4,7 @@ import java.util.Objects;
 
 /**
  * Класс представляет из себя модель данных, описывающую банковский счет
- * @autor Kozlov Roman
+ * @author Kozlov Roman
  * @version 1.0
  */
 public class Account {
@@ -55,7 +55,7 @@ public class Account {
 
     /**
      * Проверяет равенство текущего объекта и поля requisite
-     * между объектом {@param o} и полем o.requisite
+     * между объектом o и полем o.requisite
      * @param o - объект , с которым проверяется равенство
      * @return - {@code true} если объекты равны
      */
