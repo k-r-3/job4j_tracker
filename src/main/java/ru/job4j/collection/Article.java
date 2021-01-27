@@ -3,29 +3,46 @@ package ru.job4j.collection;
 import java.util.HashMap;
 import java.util.Map;
 
+
 public class Article {
     public static boolean generateBy(String origin, String line) {
         origin = origin.toUpperCase();
         line = line.toUpperCase();
-        boolean result = true;
-        String[] originArr = origin.split(" ");
         Map<String, Integer> map = new HashMap<>();
+        String[] lineArr = line.split(" ");
+        for (String o : origin.split(" ")) {
+            if (map.containsKey(o)) {
+                map.put(o, map.get(o) + 1);
+            }
+            map.put(o, 1);
+        }
+        int startSize = map.size();
         for (String l : line.split(" ")) {
-            int count = 0;
-            for (String o : originArr) {
-                if (o.startsWith(l)) {
-                    if (o.length() == l.length() || o.length() == (l.length() + 1)) {
-                      count++;
-                    }
+            if (map.containsKey(l)) {
+                map.put(l, map.get(l) - 1);
+                if (map.get(l) == 0) {
+                    map.remove(l);
                 }
             }
-            map.put(l, count);
-        }
-        for (int value : map.values()) {
-            if (value == 0) {
-                result = false;
+            if (map.containsKey(l + ",")) {
+                map.put(l + ",", map.get(l + ",") - 1);
+                if (map.get(l + ",") == 0) {
+                    map.remove(l + ",");
+                }
+            }
+            if (map.containsKey(l + ".")) {
+                map.put(l + ".", map.get(l + ".") - 1);
+                if (map.get(l + ".") == 0) {
+                    map.remove(l + ".");
+                }
+            }
+            if (map.containsKey(l + "!")) {
+                map.put(l + "!", map.get(l + "!") - 1);
+                if (map.get(l + "!") == 0) {
+                    map.remove(l + "!");
+                }
             }
         }
-        return result;
+        return map.size() == startSize - lineArr.length;
     }
 }
