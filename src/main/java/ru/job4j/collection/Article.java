@@ -10,13 +10,12 @@ public class Article {
         origin = origin.toUpperCase();
         line = line.toUpperCase();
         String[] lineArr = line.split(" ");
-        String[] originArr = origin.split(" ");
+        String[] originArr = origin.replaceAll("[,!.]", "").split(" ");
         for (String o : originArr) {
-            String word = o.replaceAll("[,!.]", "");
-            if (map.containsKey(word)) {
-                map.put(word, map.get(word) + 1);
+            if (map.containsKey(o)) {
+                map.put(o, map.get(o) + 1);
             } else {
-                map.put(word, 1);
+                map.put(o, 1);
             }
         }
         for (String l : lineArr) {
