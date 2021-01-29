@@ -8,7 +8,8 @@ import java.util.stream.Collectors;
 
 public class StreamApi {
     List<Integer> list = new ArrayList<>(List.of(2, 5, 22, 0, -6, -4, 1));
-    List<Integer> filterList = list.stream().filter(
-            i -> i >= 0).collect(Collectors.toList());
+    List<Integer> filterList = list.stream()
+            .filter(i -> i >= 0)
+            .collect(Collectors.toList());
 
 }
