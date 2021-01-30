@@ -8,18 +8,16 @@ import java.util.stream.Collectors;
 public class School {
 
     public List<Student> collect(List<Student> students, Predicate<Student> predict) {
-        List<Student> result = students.stream()
+        return students.stream()
                 .filter(predict)
                 .collect(Collectors.toList());
-        return result;
     }
 
     public Map<String, Student> mapping(List<Student> students) {
-        Map<String, Student> result = students.stream()
+        return students.stream()
                 .collect(Collectors.toMap(
                         Student::getSurname, e -> e)
                 );
-        return result;
     }
 
 }
