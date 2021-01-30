@@ -15,6 +15,7 @@ public class School {
 
     public Map<String, Student> mapping(List<Student> students) {
         return students.stream()
+                .distinct()
                 .collect(Collectors.toMap(
                         Student::getSurname, e -> e)
                 );

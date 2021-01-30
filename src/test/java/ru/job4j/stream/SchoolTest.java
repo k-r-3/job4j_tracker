@@ -6,6 +6,7 @@ import org.junit.Test;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.function.Predicate;
 
 import static org.hamcrest.core.Is.is;
@@ -69,9 +70,10 @@ public class SchoolTest {
     @Test
     public void whenMapping() {
         School sc = new School();
-        Student student = new Student(50, "Ivanov");
-        List<Student> example = List.of(student);
+        Student studentOriginal = new Student(50, "Petrov");
+        Student studentDub = new Student(50, "Petrov");
+        List<Student> example = List.of(studentOriginal, studentDub);
         Map<String, Student> input = sc.mapping(example);
-        assertThat(input.get("Ivanov"), is(student));
+        assertThat(input, is(Map.of("Petrov", studentOriginal)));
     }
 }
