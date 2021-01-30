@@ -71,7 +71,7 @@ public class SchoolTest {
     public void whenMapping() {
         School sc = new School();
         Student studentOriginal = new Student(50, "Petrov");
-        Student studentDub = new Student(50, "Petrov");
+        Student studentDub = new Student(51, "Petrov");
         List<Student> example = List.of(studentOriginal, studentDub);
         Map<String, Student> input = sc.mapping(example);
         assertThat(input, is(Map.of("Petrov", studentOriginal)));
