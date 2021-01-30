@@ -7,7 +7,7 @@ import java.util.stream.Stream;
 
 public class FlattingMap {
     Integer[][] example = {{3,4},
-                           {5,6}
+            {5,6}
     };
 
 
