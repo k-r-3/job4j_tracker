@@ -26,6 +26,15 @@ public class BankServiceTest {
     }
 
     @Test
+    public void whenEnterInvalidRequisite() {
+        User user = new User("3434", "Petr Arsentev");
+        BankService bank = new BankService();
+        bank.addUser(user);
+        bank.addAccount(user.getPassport(), new Account("5546", 150D));
+        assertThat(bank.findByRequisite("3434", "546"), is(Optional.empty()));
+    }
+
+    @Test
     public void addAccount() {
         User user = new User("3434", "Petr Arsentev");
         BankService bank = new BankService();
@@ -36,7 +45,7 @@ public class BankServiceTest {
 
     @Test
     public void whenAddAccountEmptyUser() {
-        User user = new User("3434", "Petr Arsentev");
+        User user = new User("0", "null");
         BankService bank = new BankService();
         bank.addAccount(user.getPassport(), new Account("5546", 150D));
         assertThat(bank.findByRequisite("3434", "5546"), is(Optional.empty()));

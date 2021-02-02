@@ -1,6 +1,7 @@
 package ru.job4j.bank;
 
 import java.util.*;
+import java.util.stream.Stream;
 
 /**
  * Класс предстваляет из себя програмный интерфейс приложения для обслуживания клиентов банка
@@ -50,13 +51,10 @@ public class BankService {
      * значение null
      */
     public Optional<User> findByPassport(String passport) {
-        Optional<User> rsl = Optional.empty();
-        for (User user : users.keySet()) {
-            if (user.getPassport().equals(passport)) {
-                rsl = Optional.of(user);
-                break;
-            }
-        }
+        Optional<User> rsl = Stream.of(users.keySet())
+                .flatMap(Set::stream)
+                .filter(u -> u.getPassport().equals(passport))
+                .findFirst();
         return rsl;
     }
 
@@ -72,12 +70,10 @@ public class BankService {
         Optional<User> user = findByPassport(passport);
         Optional<Account> account = Optional.empty();
         if (user.isPresent()) {
-            for (Account acc : users.get(user.get())) {
-                if (acc.getRequisite().equals(requisite)) {
-                    account = Optional.of(acc);
-                    break;
-                }
-            }
+            account = Stream.of(users.get(user.get()))
+                .flatMap(List::stream)
+                .filter(a -> a.getRequisite().equals(requisite))
+                .findFirst();
         }
         return account;
     }
@@ -96,16 +92,17 @@ public class BankService {
      */
     public boolean transferMoney(String srcPassport, String srcRequisite,
                                  String destPassport, String destRequisite, double amount) {
-        boolean rsl = false;
+
         Optional<Account> accountFrom = findByRequisite(srcPassport, srcRequisite);
         Optional<Account> accountTo = findByRequisite(destPassport, destRequisite);
-        if (accountFrom.isPresent() && accountTo.isPresent()) {
+        boolean isPresent = (accountFrom.isPresent() && accountTo.isPresent());
+        if (isPresent) {
             if (accountFrom.get().getBalance() >= amount) {
                 accountFrom.get().setBalance(accountFrom.get().getBalance() - amount);
                 accountTo.get().setBalance(accountTo.get().getBalance() + amount);
-                rsl = true;
+                return true;
             }
         }
-        return rsl;
+        return isPresent;
     }
 }
