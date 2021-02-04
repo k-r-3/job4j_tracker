@@ -1,4 +1,4 @@
-package ru.job4j.stream.builtObject;
+package ru.job4j.stream.builtobject;
 
 public class Pojo {
     private String name;
@@ -8,7 +8,7 @@ public class Pojo {
     private short salary;
     private String position;
 
-    static class Builder{
+    static class Builder {
         private String name;
         private String surname;
         private short age;
@@ -61,13 +61,12 @@ public class Pojo {
 
     @Override
     public String toString() {
-        return "Pojo{" +
-                "name='" + name + '\'' +
-                ", surname='" + surname + '\'' +
-                ", age=" + age +
-                ", isMarried=" + isMarried +
-                ", salary=" + salary +
-                ", position='" + position + '\'' +
-                '}';
+        return "Pojo{" + "name='"
+                + name + '\'' + ", surname='"
+                + surname + '\'' + ", age=" + age
+                + ", isMarried=" + isMarried
+                + ", salary=" + salary
+                + ", position='" + position + '\''
+                + '}';
     }
 }

@@ -9,7 +9,7 @@ import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.*;
 
 public class ReckonerFunctionTest {
-    ReckonerFunction function = new ReckonerFunction();
+    private ReckonerFunction function = new ReckonerFunction();
 
     @Test
     public void whenLinearFunctionThenLinearResults() {

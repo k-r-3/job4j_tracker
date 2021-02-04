@@ -1,4 +1,4 @@
-package ru.job4j.stream.builtObject;
+package ru.job4j.stream.builtobject;
 
 public class BuilderRun {
     public static void main(String[] args) {

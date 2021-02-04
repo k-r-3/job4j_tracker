@@ -4,7 +4,7 @@ import java.util.Comparator;
 
 public class LambdaBlock {
 
-    Comparator<String> comparator = (left, right) -> {
+    private Comparator<String> comparator = (left, right) -> {
         System.out.println("compare " + left.length() + " : " +  right.length());
         return Integer.compare(right.length(), left.length());
     };
