@@ -7,7 +7,9 @@ import java.util.function.Predicate;
 
 public class EasyStream {
 
-    static class InnerFeature {
+    private EasyStream() { }
+
+     static class InnerFeature {
          private static List<Integer> innerList;
 
          private static List<Integer> getInnerList() {
